@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Todo Client</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/libs/angular.js"></script>
+  </head>
+  <body>
+    <style>
+      .old{background: red;}
+      .new{background: blue;}
+    </style>
+    <div ng-controller="MoviesController as movies">
+      <ul>
+        <li
+          ng-class="movie.year > 1999 ? 'new' : 'old'",
+          ng-repeat="movie in movies.favorites">
+          <!-- <img ng-src="img/front.jpg/{{movie.img}}" alt="Front img"> -->
+          <p>{{ movie.title }} {{ $index }}</p>
+          <p>Release in: {{ movie.year }}</p>
+          <input type="text" ng-model="movie.year">
+          <p ng-show = "movie.popular">This movie is popular!</p>
+          <p ng-show = "movie.year > 2009">This movie is quite new!</p>
+          <div ng-switch = "movie.category">
+            <div ng-switch-when = "action">
+              Action Movie!
+            </div>
+            <div ng-switch-when = "fantasy">
+              Fantasy movie!
+            </div>
+            <div ng-switch-default>
+              Movie has no category!
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script src="js/libs/app.js"></script>
+    <script src="js/libs/todo.controller.js"></script>
+  </body>
+</html>
