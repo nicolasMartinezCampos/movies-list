@@ -1,6 +1,12 @@
 function MoviesController() {
   this.newTitle = '';
   this.newYear = '';
+  this.onFocus = function () {
+    console.log('Focus!');
+  };
+  this.onBlur = function () {
+    console.log('Blur!');
+  }
   this.addMovie = function () {
     this.favorites.unshift({
       title: this.newTitle,

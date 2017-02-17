@@ -19,6 +19,8 @@
           <input
             type="text"
             placeholder="title"
+            ng-focus="movies.onFocus();"
+            ng-blur="movies.onBlur()"
             ng-model="movies.newTitle">
           <input
             type="text"
