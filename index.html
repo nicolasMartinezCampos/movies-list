@@ -13,6 +13,20 @@
       .new{background: blue;}
     </style>*/ -->
     <div ng-controller="MoviesController as movies">
+      <div>
+        <form ng-submit="movies.addMovie();">
+          <p>Add a movie:</p>
+          <input
+            type="text"
+            placeholder="title"
+            ng-model="movies.newTitle">
+          <input
+            type="text"
+            placeholder="year"
+            ng-model="movies.newYear">
+          <button type="submit">Add new movie!</button>
+        </form>
+      </div>
       <div class="likes">
         <p>Niko´s Likes</p>
         <ul>
@@ -30,7 +44,7 @@
           <li ng-repeat="movie in movies.favorites">
             <!-- <img ng-src="img/front.jpg/{{movie.img}}" alt="Front img"> -->
             <!-- <p>{{ movie.title }} {{ $index }}</p> -->
-            <p>{{ movie.title }}</p>
+            <p>{{ movie.title }} {{ $index }}</p>
             <a href="" ng-click="movies.addToLikes(movie)">Likes this movie</a>
             <!-- <p>Release in: {{ movie.year }}</p> -->
             <!-- <input type="text" ng-model="movie.year"> -->

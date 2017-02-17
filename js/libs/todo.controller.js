@@ -1,4 +1,12 @@
 function MoviesController() {
+  this.newTitle = '';
+  this.newYear = '';
+  this.addMovie = function () {
+    this.favorites.unshift({
+      title: this.newTitle,
+      year: this.newYear
+    });
+  };
   this.likesList = [];
   this.unlike = function (index) {
     this.likesList.splice(index, 1);
